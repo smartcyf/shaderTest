@@ -161,7 +161,7 @@ protected:
         getGLProgramState()->setUniformVec2("resolution", Vec2(s.width, s.height));
         getGLProgramState()->setUniformVec2("center", center);
         getGLProgramState()->setUniformInt("direction", 0);
-        getGLProgramState()->setUniformFloat("rate", 0.2);
+        getGLProgramState()->setUniformFloat("rate", 0.3);
 //        getGLProgramState()->setUniformTexture("u_texture1", right->getTexture());
 //        getGLProgramState()->setUniformFloat("u_interpolate",0.5);
     }
@@ -239,9 +239,14 @@ bool HelloWorld::init()
     
     //test shader
     auto sprite = EffectSprite::create("testpic.png");
-    sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
+    sprite->setPosition(Vec2(visibleSize.width/2 + origin.x-250, visibleSize.height/2 + origin.y));
     this->addChild(sprite, 0);
-    sprite->setEffect(EffectTest::create());
+//    sprite->setEffect(EffectTest::create());
+    
+    auto sprite2 = EffectSprite::create("testpic.png");
+    sprite2->setPosition(Vec2(visibleSize.width/2 + origin.x+250, visibleSize.height/2 + origin.y));
+    this->addChild(sprite2, 0);
+    sprite2->setEffect(EffectTest::create());
     
     auto sprite1 = EffectSprite::create("CloseNormal.png");
     sprite1->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height*0.2 + origin.y));
